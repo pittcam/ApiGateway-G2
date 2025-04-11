@@ -11,7 +11,7 @@ const schema = await stitchSchemas({
         loaders: [new UrlLoader()],
       }),
     }
-    // Aquí puedes agregar más microservicios luego
+    // Epacio para servicios
   ],
 })
 
