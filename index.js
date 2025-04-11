@@ -4,15 +4,16 @@ import { loadSchema } from '@graphql-tools/load'
 import { stitchSchemas } from '@graphql-tools/stitch'
 import { UrlLoader } from '@graphql-tools/url-loader'
 
+const authSchema = await loadSchema('http://localhost:5000/graphql', {
+  loaders: [new UrlLoader()],
+})
+
+const tmdbSchema = await loadSchema('http://localhost:5001/graphql', {
+  loaders: [new UrlLoader()],
+})
+
 const schema = await stitchSchemas({
-  subschemas: [
-    {
-      schema: await loadSchema('http://localhost:5000/graphql', {
-        loaders: [new UrlLoader()],
-      }),
-    }
-    // Epacio para servicios
-  ],
+  subschemas: [authSchema, tmdbSchema],
 })
 
 const server = new ApolloServer({
