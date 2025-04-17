@@ -4,11 +4,10 @@ import { loadSchema } from '@graphql-tools/load'
 import { stitchSchemas } from '@graphql-tools/stitch'
 import { UrlLoader } from '@graphql-tools/url-loader'
 
-const authSchema = await loadSchema('http://localhost:5000/graphql', {
+const authSchema = await loadSchema('http://servicio1:5000/graphql', {
   loaders: [new UrlLoader()],
 })
-
-const tmdbSchema = await loadSchema('http://localhost:5001/graphql', {
+const tmdbSchema = await loadSchema('http://servicio2:5001/graphql', {
   loaders: [new UrlLoader()],
 })
 
@@ -24,4 +23,4 @@ const { url } = await startStandaloneServer(server, {
   listen: { port: 4000 },
 })
 
-console.log(`🚀 API Gateway listo en ${url}`)
+console.log('🚀 API Gateway listo en ${url}')
