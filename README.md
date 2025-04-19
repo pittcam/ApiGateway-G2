@@ -14,7 +14,7 @@ Este proyecto es una aplicación web para la gestión de películas favoritas co
 
 Antes de levantar el proyecto, es necesario realizar algunos ajustes en la configuración del entorno y base de datos:
 
-### 📄 Variables de Entorno
+### 1. 📄 Variables de Entorno
 
 Editá el archivo `.env` y el docker-compose del contenedor del servicio 2 con los siguientes datos:
 
@@ -25,6 +25,10 @@ env
 - POSTGRES_HOST=host.docker.internal
 - POSTGRES_PORT=5433
 
+### 2. 📄 Crear base de datos MovieNest
+
+Es necesario crear la base de datos en el servidor activo con el nombre exacto de "MovieNest".
+
 ## Ejecutar el contenedor general
 
 ### 📄 1. A nivel de MovieNest-App
@@ -33,6 +37,8 @@ Correr el siguiente comando en la raíz de la carpeta MovieNest-App:
 docker-compose up --build
 
 Si quiere detenerse se usa el comando: docker-compose down
+
+En la base de datos creado anteriormente, se crearán las dos tablas.
 
 ## 2. Acceder a la página de forma local
 
